@@ -1,11 +1,11 @@
 import Reminder from "../models/Reminder";
 
-interface ReminderListProps {
+type ReminderListProps = {
   items: Reminder[];
   onRemoveReminder: (id: number) => void;
-}
+};
 
-function ReminderList({ items, onRemoveReminder }: ReminderListProps) {
+export function ReminderList({ items, onRemoveReminder }: ReminderListProps) {
   return (
     <ul className="list-group">
       {items.map((item) => (
@@ -23,4 +23,4 @@ function ReminderList({ items, onRemoveReminder }: ReminderListProps) {
   );
 }
 
-export default ReminderList;
+// export default ReminderList;

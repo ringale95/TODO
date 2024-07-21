@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import ReminderList from "./components/ReminderList";
+import { ReminderList } from "./components/ReminderList";
 import Reminder from "./models/Reminder";
 import ReminderService from "./services/ReminderService";
 import NewReminderList from "./components/NewReminderList";
+import Counter from "./components/Counter";
+import TextChange from "./components/TextChange";
+import Liked from "./components/Liked";
 
 function App() {
   const [reminders, setReminders] = useState<Reminder[]>([]);
@@ -27,6 +30,9 @@ function App() {
   };
   return (
     <div className="App">
+      <Liked />
+      <Counter />
+      <TextChange />
       <NewReminderList onAddReminder={addReminder} />
       <ReminderList items={reminders} onRemoveReminder={removeReminder} />
     </div>

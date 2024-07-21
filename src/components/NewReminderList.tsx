@@ -3,9 +3,11 @@ import React, { useState } from "react";
 interface NewReminderProps {
   onAddReminder: (title: string) => void;
 }
-function NewReminderList({ onAddReminder }: NewReminderProps): JSX.Element {
+function NewReminderList<T extends NewReminderProps>({
+  onAddReminder,
+}: T): JSX.Element {
   // by annotating the return value of function component the typescript compiler ensures we only have to return a jsx
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(() => "");
   const submitForm = (e: React.FormEvent) => {
     if (!title) return;
     e.preventDefault();
